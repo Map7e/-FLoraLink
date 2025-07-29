@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flora Link</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <h1 class="title">Flora Link</h1>
+
+  <audio id="bgm" src="audio/bgm.mp3" loop></audio>
+  <audio id="flip-sound" src="audio/flip.mp3"></audio>
+  <audio id="win-sound" src="audio/win.mp3"></audio>
+
+  <div class="flower-sidebar left">
+    <div class="flower-item"><img src="images/rotate1.png" alt="Sunflower"><span>Sunflower</span></div>
+    <div class="flower-item"><img src="images/rotate2.png" alt="Rose"><span>Rose</span></div>
+    <div class="flower-item"><img src="images/rotate3.png" alt="Cherry"><span>Cherry</span></div>
+    <div class="flower-item"><img src="images/rotate4.png" alt="Daisy"><span>Daisy</span></div>
+  </div>
+
+  <div class="game-board" id="game-board"></div>
+
+  <div class="flower-sidebar right">
+    <div class="flower-item"><img src="images/rotate5.png" alt="Pansy"><span>Pansy</span></div>
+    <div class="flower-item"><img src="images/rotate6.png" alt="Forget-me-not"><span>Forget-me-not</span></div>
+    <div class="flower-item"><img src="images/rotate7.png" alt="Tulip"><span>Tulip</span></div>
+    <div class="flower-item"><img src="images/rotate8.png" alt="Water Lily"><span>Water Lily</span></div>
+  </div>
+
+  <div id="win-message">🎉 You Win! 🎉</div>
+  <div id="full-bloom-banner">
+    <span class="bloom-deco">🌸</span>
+    <span class="bloom-text">Full Bloom!</span>
+    <span class="bloom-deco">🌸</span>
+  </div>
+  <button id="replay-button" onclick="location.reload()">Replay</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
