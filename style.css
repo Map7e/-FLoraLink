@@ -1,0 +1,214 @@
+body {
+  background-image: url('images/bg.png');
+  background-repeat: repeat;
+  background-size: 33.3%;
+  margin: 0;
+  padding: 3vw;
+  font-family: 'VT323', monospace;
+  color: #6b4c3b;
+  overflow-x: hidden;
+  user-select: none;
+  pointer-events: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 2vw;
+}
+
+.flower-sidebar {
+  position: fixed;
+  top: 10%;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vw;
+  user-select: none;
+}
+
+.flower-sidebar.left {
+  left: 1vw;
+}
+
+.flower-sidebar.right {
+  right: 1vw;
+}
+
+.flower-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  font-family: 'VT323', monospace;
+  color: #6b4c3b;
+}
+
+.flower-item img {
+  width: 80px;
+  height: 80px;
+  animation: rotate 10s linear infinite;
+  user-select: none;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1vw;
+  justify-content: center;
+  max-width: 640px;
+  margin: auto;
+  user-select: none;
+}
+
+.card {
+  width: 120px;
+  height: 120px;
+  background-image: url('images/back.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  transition: transform 0.5s cubic-bezier(.36,.07,.19,.97);
+  user-select: none;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.card .front, .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+}
+.card .front {
+  background-image: none;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card .front img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  user-select: none;
+}
+.card .back {
+  background-image: url('images/back.png');
+}
+
+#win-message {
+  text-align: center;
+  font-size: 36px;
+  display: none;
+  margin-top: 2vw;
+  color: #6b4c3b;
+  font-family: 'VT323', monospace;
+  user-select: none;
+}
+
+#full-bloom-banner {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+  margin-top: 1vw;
+  font-size: 40px;
+  font-family: 'VT323', monospace;
+  color: #6b4c3b;
+  animation: slideIn 1.2s ease-out forwards;
+  user-select: none;
+}
+
+.bloom-deco {
+  display: inline-block;
+  animation: spin 4s linear infinite;
+  font-size: 36px;
+  user-select: none;
+}
+
+.bloom-text {
+  display: inline-block;
+  animation: bounce 0.6s ease infinite alternate;
+  white-space: nowrap;
+  opacity: 0;
+  animation: reveal 2s ease forwards;
+  user-select: none;
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-100vw); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+@keyframes reveal {
+  0% { opacity: 0; letter-spacing: 1em; }
+  100% { opacity: 1; letter-spacing: normal; }
+}
+
+@keyframes fall-flower {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fall-leaf {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0.3; }
+}
+
+.flower-fall {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  pointer-events: none;
+  z-index: 9999;
+  animation-timing-function: linear;
+}
+
+.leaf-fall {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  z-index: 9999;
+  animation-timing-function: ease-out;
+}
+
+#replay-button {
+  display: none;
+  margin: 20px auto;
+  font-size: 24px;
+  padding: 10px 20px;
+  background-color: #f6e6da;
+  border: 2px solid #6b4c3b;
+  color: #6b4c3b;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'VT323', monospace;
+  user-select: none;
+}
